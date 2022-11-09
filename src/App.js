@@ -1,20 +1,20 @@
-import logo from './logo.svg';
+import React/*, { Component }*/ from 'react';
 import './App.css';
-import {useEffect, useState} from 'react';
-import axios from 'axios';
+import Infoproduct from './Infoproduct/Infoproduct';
+import Imagenproduct from './Imagenproduct/Imagenproduct';
+import Descriproduct from './Descriproduct/Descriproduct';
 
 function App() {
-
-  const [equipo, setEquipo, ]= useState ([]);
-
-  useEffect(() =>{
-    axios.get('')
-    .then((Response)=>{
-      setEquipo(Response.data.teams);
-    })
-  })
   return (
-    <h1>Bienvenido { equipo.strTeam }</h1>
+    <div className='container' >
+      <div className="App">
+        <div className='col1'><Infoproduct /></div>
+        <div className='col2'>
+          <div className='row1'><Imagenproduct /></div>
+          <div className='row2'><Descriproduct /></div>
+        </div>
+      </div>
+    </div>
   );
 }
 
