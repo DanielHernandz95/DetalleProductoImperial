@@ -6,14 +6,16 @@ import Descriproduct from './Descriproduct/Descriproduct';
 
 function App() {
   return (
-    <div className='container' >
-      <div className="App">
-        <div className='col1'><Infoproduct /></div>
-        <div className='col2'>
-          <div className='row1'><Imagenproduct /></div>
-          <div className='row2'><Descriproduct /></div>
+    <div className="App">
+      <header className="App-header">
+        <div className='App'>
+          <div className='col1'><Infoproduct /></div>
+          <div className='col2'>
+            <div className='row1'><Imagenproduct /></div>
+            <div className='row2'><Descriproduct /></div>
+          </div>
         </div>
-      </div>
+      </header>
     </div>
   );
 }

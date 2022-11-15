@@ -1,12 +1,57 @@
 .fm{
     margin: 15px;
     padding: 15px;
-    border: 1px solid orange;
+    width: 29%;
+    height: 100%;
+    position: fixed;    
+    background-image: url("../fondo.jpeg");
+    text-align: -webkit-center;
 }
 
 .fm img{
+    width: 200px;
+    padding-bottom: 15%;
+}
+
+.tarjeta{
+    width: 95%;
     text-align-last: center;
-    float: none;
-    display: block;
-    position: relative;
+}
+.divlogo{
+    text-align-last: center;
+    background: var(--imperial-white);
+    position: static;
+    float: inherit;
+    padding: 10% 10%;
+    width: 100%;
+    border-radius: 50px;
+    box-shadow:  20px 20px 60px #bebebe,
+             -20px -20px 60px #ffffff;
+    font-weight: bold;
+}
+.divlogo p{
+    font-size: 1em;
+}
+
+.divlogo a{
+    font-size: 0.8em;
+}
+
+.divbutton{
+    padding: 10% 5%;
+    text-align-last: center;
+
+}
+
+.buttonstyle{
+    background: var(--imperial-cyan);
+    color: aliceblue;
+    border: 0;
+    padding: 3% 35%;
+    border-radius: 60px;
+    font-weight: bolder;
+}
+.empresaa{
+    text-decoration: none;
+    color: var(--text-color);
 }

@@ -1,51 +1,98 @@
 import React, { Component } from 'react';
-import './Imagenproduct.css';
+import  './Imagenproduct.css';
+import {
+  Carousel,
+  CarouselItem,
+  CarouselControl,
+  CarouselIndicators,
+  CarouselCaption
+} from 'reactstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
-document.addEventListener('DOMContentLoaded', () =>{
-    const elementosCarousel = document.querySelectorAll('.carousel');
-    Map.Carousel.init(elementosCarousel, {
-        duration: 150
-    });
-});
+const items = [
+  {
+    src: require('./Images/Spanish300.jpg'),
+    altText: 'Slide 1',
+    caption: 'Slide 1'
+  },
+  {
+    src: require('./Images/Logo_Negro_y_Amarillo.png'),    
+    altText: 'Slide 2',
+    caption: 'Slide 2'
+  },
+  {
+    src: require('./Images/Logo_Negro.png'),    
+    altText: 'Slide 3',
+    caption: 'Slide 3'
+  }
+];
 
 class Imagenproduct extends Component {
-    state = {}
-    render() {
-        return (
-            <div className='container'>
-                <div className='row'>
-                    <div className='carousel center-align'>
+  constructor(props) {
+    super(props);
+    this.state = { activeIndex: 0 };
+    this.next = this.next.bind(this);
+    this.previous = this.previous.bind(this);
+    this.goToIndex = this.goToIndex.bind(this);
+    this.onExiting = this.onExiting.bind(this);
+    this.onExited = this.onExited.bind(this);
+  }
 
-                        <div className='carousel-item'>
-                            <h2>Imagen 1</h2>
-                            <div className='linea-division'></div>
-                            <p>descripcion 1</p>
-                            <img alt='prueba' className='imagen' src='https://c8.alamy.com/compes/kggdgw/taza-azul-con-cafe-fondo-blanco-foto-horizontal-con-espacio-para-escribir-kggdgw.jpg'/>
-                        </div>
+  onExiting() {
+    this.animating = true;
+  }
 
-                        <div className='carousel-item'>
-                            <h2>Imagen 2</h2>
-                            <div className='linea-division'></div>
-                            <p>descripcion 2</p>
-                            <img alt='prueba' className='imagen' src='https://c8.alamy.com/compes/kggdgw/taza-azul-con-cafe-fondo-blanco-foto-horizontal-con-espacio-para-escribir-kggdgw.jpg'/>
-                        </div>
+  onExited() {
+    this.animating = false;
+  }
 
-                        <div className='carousel-item'>
-                            <h2>Imagen 3</h2>
-                            <div className='linea-division'></div>
-                            <p>descripcion 3</p>
-                            <img alt='prueba' className='imagen' src='https://c8.alamy.com/compes/kggdgw/taza-azul-con-cafe-fondo-blanco-foto-horizontal-con-espacio-para-escribir-kggdgw.jpg'/>
-                        </div>
+  next() {
+    if (this.animating) return;
+    const nextIndex = this.state.activeIndex === items.length - 1 ? 0 : this.state.activeIndex + 1;
+    this.setState({ activeIndex: nextIndex });
+  }
 
-                    </div>
-                </div>
-            </div>
-               
-            
+  previous() {
+    if (this.animating) return;
+    const nextIndex = this.state.activeIndex === 0 ? items.length - 1 : this.state.activeIndex - 1;
+    this.setState({ activeIndex: nextIndex });
+  }
 
+  goToIndex(newIndex) {
+    if (this.animating) return;
+    this.setState({ activeIndex: newIndex });
+  }
 
-        );
-    }
+  render() {
+    const { activeIndex } = this.state;
+
+    const slides = items.map((item) => {
+      return (
+        <CarouselItem
+          onExiting={this.onExiting}
+          onExited={this.onExited}
+          key={item.src}
+        >
+          <img src={item.src} alt={item.altText} className="carru"  style={{borderRadius: "25px", color: "red"}}  />
+          <CarouselCaption captionText={item.caption} captionHeader={item.caption} />
+        </CarouselItem>
+      );
+    });
+
+    return (
+      <Carousel
+        activeIndex={activeIndex}
+        next={this.next}
+        previous={this.previous}
+      >
+        <CarouselIndicators items={items} activeIndex={activeIndex} onClickHandler={this.goToIndex} />
+        {slides}
+        <CarouselControl direction="prev" directionText="Previous" onClickHandler={this.previous} style={{color: "black"}}/>
+        <CarouselControl direction="next" directionText="Next" onClickHandler={this.next} />
+      </Carousel>
+    );
+  }
 }
+
 
 export default Imagenproduct;
