@@ -1,10 +1,12 @@
 import React/*, { Component }*/ from 'react';
 import './App.css';
-import Infoproduct from './Infoproduct/Infoproduct';
-import Imagenproduct from './Imagenproduct/Imagenproduct';
-import Descriproduct from './Descriproduct/Descriproduct';
+import Infoproduct from './components/Infoproduct/Infoproduct';
+import Imagenproduct from './components//Imagenproduct/Imagenproduct';
+import Descriproduct from './components/Descriproduct/Descriproduct';
+import {Contentful} from './Contentful';
 
 function App() {
+  Contentful()
   return (
     <div className="App">
       <header className="App-header">

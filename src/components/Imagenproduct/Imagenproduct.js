@@ -16,12 +16,12 @@ const items = [
     caption: 'Slide 1'
   },
   {
-    src: require('./Images/Logo_Negro_y_Amarillo.png'),    
+    src: require('./Images/logo512.png'),    
     altText: 'Slide 2',
     caption: 'Slide 2'
   },
   {
-    src: require('./Images/Logo_Negro.png'),    
+    src: require('./Images/prepagada.jpg'),    
     altText: 'Slide 3',
     caption: 'Slide 3'
   }
