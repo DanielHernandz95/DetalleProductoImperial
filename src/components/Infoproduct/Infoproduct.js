@@ -42,7 +42,7 @@ const InfoClinica = () => {
                     <img src="" id="idLogo" style={{ width: "150px" }}  />
 
                     <p id="ProductName"></p>
-                    <a className='empresaa' id="empresaa" href='https://www.reactjs.org'>Nombre Empresa</a>
+                    <a className='empresaa' id="empresaa" href='/'>Nombre Empresa</a>
                 </div>
                 <div className='divbutton'>
                     <button className='buttonstyle'>Obtener</button>

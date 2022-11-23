@@ -11,19 +11,19 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 const items = [
   {
-    src: require('./Images/Spanish300.jpg'),
-    altText: 'Slide 1',
-    caption: 'Slide 1'
+    src: require('./Images/medicina1.jpg'),
+    altText: '',
+    caption: ''
   },
   {
-    src: require('./Images/logo512.png'),    
-    altText: 'Slide 2',
-    caption: 'Slide 2'
+    src: require('./Images/medicina2.jpg'),    
+    altText: '',
+    caption: ''
   },
   {
     src: require('./Images/prepagada.jpg'),    
-    altText: 'Slide 3',
-    caption: 'Slide 3'
+    altText: '',
+    caption: ''
   }
 ];
 
